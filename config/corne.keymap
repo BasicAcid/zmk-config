@@ -13,7 +13,7 @@
         compatible = "zmk,combos";
 
         LAlt {
-            bindings = <&kp LEFT_ALT>;
+            bindings = <&kp LALT>;
             key-positions = <36 41>;
         };
     };
