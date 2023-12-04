@@ -14,7 +14,7 @@
 
         LAlt {
             bindings = <&kp LALT>;
-            key-positions = <36 41>;
+            key-positions = <36 40>;
         };
     };
 
