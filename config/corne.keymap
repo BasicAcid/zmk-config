@@ -40,10 +40,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB         &kp FR_7  &kp FR_8  &kp FR_9  &kp FR_0          &kp RIGHT_PARENTHESIS    &kp FR_LPRN  &kp FR_RPRN    &trans  &trans     &trans  &kp BSPC
-&kp LEFT_SHIFT  &kp FR_4  &kp FR_5  &kp FR_6  &kp LEFT_BRACKET  &kp RIGHT_BRACKET        &kp FR_LBRC  &kp FR_RBRC  &kp UP  &kp RIGHT  &trans  &trans
-&trans          &kp FR_1  &kp FR_2  &kp FR_3  &kp APOSTROPHE    &kp FR_ASTR              &kp FR_LCBR  &kp FR_RCBR    &trans  &trans     &trans  &trans
-                                            &kp LGUI      &trans            &kp SPACE                &kp RET    &trans    &trans
+&kp TAB         &kp FR_EGRV    &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV       &kp FR_DEG            &kb FR_PLUS   &kp FR_LPRN   &kp FR_RPRN       &trans     &trans  &kp BSPC
+&kp LEFT_SHIFT  &kp FR_QUOT    &kp FR_LPRN  &kp FR_MINS  &kp FR_DIAE       &kb FR_PND            &kb FR_RABK   &kp FR_LBRC   &kp FR_RBRC       &trans     &trans  &trans
+&trans          &kp FR_AMPR    &kp FR_EACU  &kp FR_DQUO  &kp FR_PERC       &kp FR_MICR           &trans        &kp FR_LCBR   &kp FR_RCBR       &trans     &trans  &trans
+                                            &kp LGUI     &trans            &kp SPACE             &trans        &kp RET      &trans
             >;
         };
 
@@ -56,7 +56,7 @@
 
             bindings = <
 &kp TAB     &kp F9  &kp F10  &kp F11   &kp F12  &none        &none      &none      &none     &kp LPAR  &kp RPAR  &kp BSPC
-&kp LSHIFT  &kp F5  &kp F6   &kp F7    &kp F8   &none        &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &trans
+&kp LSHIFT  &kp F5  &kp F6   &kp F7    &kp F8   &none        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp BSLH  &trans
 &trans      &kp F1  &kp F2   &kp F3    &kp F4   &kp TILDE    &kp UNDER  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE  &trans
                              &kp LGUI  &trans   &kp SPACE    &kp RET    &trans     &trans
             >;
