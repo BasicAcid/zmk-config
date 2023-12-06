@@ -40,10 +40,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB         &kp FR_EGRV    &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV       &kp FR_DEG            &kp FR_PLUS      &kp FR_LPRN   &kp FR_RPRN       &none     &none  &kp BSPC
-&kp LEFT_SHIFT  &kp FR_QUOT    &kp FR_LPRN  &kp FR_MINS  &kp FR_DIAE       &kp FR_PND            &kp LESS_THAN    &kp FR_LBRC   &kp FR_RBRC       &none     &none  &trans
+&trans         &kp FR_EGRV    &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV       &kp FR_DEG            &kp FR_PLUS      &kp FR_LPRN   &kp FR_RPRN       &none     &none  &trans
+&trans  &kp FR_QUOT    &kp FR_LPRN  &kp FR_MINS  &kp FR_DIAE       &kp FR_PND            &kp LESS_THAN    &kp FR_LBRC   &kp FR_RBRC       &none     &none  &trans
 &trans          &kp FR_AMPR    &kp FR_EACU  &kp FR_DQUO  &kp FR_PERC       &kp FR_MICR           &kp GREATER_THAN &kp FR_LCBR   &kp FR_RCBR       &none     &none  &trans
-                                            &kp LGUI     &trans            &kp SPACE             &trans           &kp RET      &trans
+                                            &trans     &trans            &trans             &trans           &trans      &trans
             >;
         };
 
@@ -55,10 +55,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp F9  &kp F10  &kp F11   &kp F12  &none        &none      &none      &none     &kp LPAR  &kp RPAR  &kp BSPC
+&kp TAB     &kp F9  &kp F10  &kp F11   &kp F12  &none        &none      &none      &none     &kp LPAR  &kp RPAR  &trans
 &kp LSHIFT  &kp F5  &kp F6   &kp F7    &kp F8   &none        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp BSLH  &trans
 &trans      &kp F1  &kp F2   &kp F3    &kp F4   &kp TILDE    &kp UNDER  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE  &trans
-                             &kp LGUI  &trans   &kp SPACE    &kp RET    &trans     &trans
+                             &trans  &trans   &trans    &trans    &trans     &trans
             >;
         };
 
