@@ -40,10 +40,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB         &kp FR_EGRV    &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV       &kp FR_DEG            &kp FR_PLUS   &kp FR_LPRN   &kp FR_RPRN       &trans     &trans  &kp BSPC
-&kp LEFT_SHIFT  &kp FR_QUOT    &kp FR_LPRN  &kp FR_MINS  &kp FR_DIAE       &kp FR_PND            &kp FR_RABK   &kp FR_LBRC   &kp FR_RBRC       &trans     &trans  &trans
-&trans          &kp FR_AMPR    &kp FR_EACU  &kp FR_DQUO  &kp FR_PERC       &kp FR_MICR           &trans        &kp FR_LCBR   &kp FR_RCBR       &trans     &trans  &trans
-                                            &kp LGUI     &trans            &kp SPACE             &trans        &kp RET      &trans
+&kp TAB         &kp FR_EGRV    &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV       &kp FR_DEG            &kp FR_PLUS      &kp FR_LPRN   &kp FR_RPRN       &none     &none  &kp BSPC
+&kp LEFT_SHIFT  &kp FR_QUOT    &kp FR_LPRN  &kp FR_MINS  &kp FR_DIAE       &kp FR_PND            &kp LESS_THAN    &kp FR_LBRC   &kp FR_RBRC       &none     &none  &trans
+&trans          &kp FR_AMPR    &kp FR_EACU  &kp FR_DQUO  &kp FR_PERC       &kp FR_MICR           &kb GREATER_THAN &kp FR_LCBR   &kp FR_RCBR       &none     &none  &trans
+                                            &kp LGUI     &trans            &kp SPACE             &trans           &kp RET      &trans
             >;
         };
 
