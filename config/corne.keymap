@@ -30,7 +30,7 @@
             bindings = <
 &kp FR_AMPR   &kp FR_EACU   &kp FR_DQUO   &kp FR_QUOT   &kp FR_LPRN    &kp FR_MINS   &kp FR_EGRV &kp FR_UNDS   &kp FR_CCED   &kp FR_AGRV   &kp FR_RPRN   &kp FR_EQL
 &trans        &kp LESS_THAN   &none         &none         &none          &none         &none       &kp FR_LBRC   &kp FR_RBRC   &kp FR_CIRC   &kp FR_DLR   &trans
-&trans        &kp GREATER_THAN   &none         &none         &none          &none         &none       &kp FR_LCBR   &kp FR_RCBR   &kp FR_UGRV   &kp FR_ASTR  &trans
+&trans        &kp GREATER_THAN   &none         &none         &none          &none         &none       &kp FR_LCBR   &kp FR_RCBR   &kp FR_UGRV   &kp FR_MICR  &trans
                                           &trans        &trans         &trans        &trans            &trans        &trans
             >;
         };
