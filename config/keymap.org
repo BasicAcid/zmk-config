@@ -1,0 +1,72 @@
+#+OPTIONS: \n:t
+#+EXPORT_FILE_NAME: corne.keymap
+#+AUTHOR:
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include "keymap_french.h"
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+| // 1           | 2     | 3     | 4        | 5     | 6         | 7       | 8           | 9           | 10          | 11          | 12       |
+| &kp TAB        | &kp Q | &kp W | &kp E    | &kp R | &kp T     | &kp Y   | &kp U       | &kp I       | &kp O       | &kp P       | &kp BSPC |
+| &kp LEFT_SHIFT | &kp A | &kp S | &kp D    | &kp F | &kp G     | &kp H   | &kp J       | &kp K       | &kp L       | &kp SEMI    | &kp RALT |
+| &kp LCTRL      | &kp Z | &kp X | &kp C    | &kp V | &kp B     | &kp N   | &kp FR_COMM | &kp FR_SCLN | &kp FR_COLN | &kp FR_EXLM | &kp ESC  |
+|                |       |       | &kp LGUI | &mo 1 | &kp SPACE | &kp RET | &mo 2       | &kp LALT    |             |             |          |
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+| // 1        | 2           | 3           | 4           | 5           | 6           | 7           | 8           | 9           | 10          | 11          | 12         |
+| &kp FR_AMPR | &kp FR_EACU | &kp FR_DQUO | &kp FR_QUOT | &kp FR_LPRN | &kp FR_MINS | &kp FR_EGRV | &kp FR_UNDS | &kp FR_CCED | &kp FR_AGRV | &kp FR_RPRN | &kp FR_EQL |
+| &trans      | &none       | &none       | &none       | &none       | &none       | &none       | &kp FR_LBRC | &kp FR_RBRC | &kp FR_CIRC | &kp FR_DLR  | &trans     |
+| &trans      | &none       | &none       | &none       | &none       | &none       | &none       | &kp FR_LCBR | &kp FR_RCBR | &kp FR_UGRV | &kp BSLH    | &trans     |
+|             |             |             | &trans      | &trans      | &trans      | &trans      | &trans      | &trans      |             |             |            |
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+| // 1       | 2      | 3      | 4      | 5      | 6         | 7         | 8        | 9        | 10        | 11       | 12      |
+| &kp F1     | &kp F2 | &kp F3 | &kp F4 | &kp F5 | &kp F6    | &kp F7    | &kp F8   | &kp F9   | &kp F10   | &kp F11  | &kp F12 |
+| &kp LSHIFT | &none  | &none  | &none  | &none  | &none     | &kp LEFT  | &kp DOWN | &kp UP   | &kp RIGHT | &kp BSLH | &trans  |
+| &trans     | &none  | &none  | &none  | &none  | &kp TILDE | &kp UNDER | &kp PLUS | &kp LBRC | &kp RBRC  | &kp PIPE | &trans  |
+|            |        |        | &trans | &trans | &trans    | &trans    | &trans   | &trans   |           |          |         |
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+| // 1       | 2            | 3            | 4            | 5            | 6            | 7            | 8      | 9      | 10    | 11     | 12     |
+| &bt BT_CLR | &bt BT_SEL 0 | &bt BT_SEL 1 | &bt BT_SEL 2 | &bt BT_SEL 3 | &bt BT_SEL 4 | &bt BT_SEL 5 | &none  | &none  | &none | &trans | &trans |
+| &trans     | &none        | &none        | &none        | &none        | &none        | &none        | &none  | &none  | &none | &none  | &trans |
+| &trans     | &none        | &none        | &none        | &none        | &none        | &none        | &none  | &none  | &none | &none  | &trans |
+|            |              |              | &trans       | &trans       | &trans       | &trans       | &trans | &trans |       |        |        |
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Layer3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+};
