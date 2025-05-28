@@ -10,75 +10,79 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keymap_french.h"
 
-#define ERGOL 4  // ERGOL will be layer 4
-
 / {
-    // Optional: Keep combos section for other combos you might want to add later
-    // combos {
-    //     compatible = "zmk,combos";
-    // };
-
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: Your current default layer (unchanged)
+        // Layer 0: ERGOL Base Layout (exactly as shown in reference image)
         default_layer {
-            bindings = <
-                &kp TAB         &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y    &kp U        &kp I        &kp O        &kp P        &kp BSPC
-                &kp LEFT_SHIFT  &kp A  &kp S  &kp D     &kp F  &kp G      &kp H    &kp J        &kp K        &kp L        &kp SEMI     &kp RALT
-                &kp LCTRL       &kp Z  &kp X  &kp C     &kp V  &kp B      &kp N    &kp FR_COMM  &kp FR_SCLN  &kp FR_COLN  &kp FR_EXLM  &kp ESC
-                                               &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2        &kp LALT
-            >;
-        };
-
-        // Layer 1: Your current lower layer + ERGOL toggle
-        lower_layer {
-            bindings = <
-                &kp FR_AMPR  &kp FR_EACU  &kp FR_DQUO  &kp FR_QUOT  &kp FR_LPRN  &kp FR_MINS  &kp FR_EGRV  &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV  &kp FR_RPRN  &kp FR_EQL
-                &tog ERGOL   &none        &none        &none        &none        &none        &none        &kp FR_LBRC  &kp FR_RBRC  &kp FR_CIRC  &kp FR_DLR   &trans
-                &trans       &none        &none        &none        &none        &none        &none        &kp FR_LCBR  &kp FR_RCBR  &kp FR_UGRV  &kp BSLH     &trans
-                                                      &trans       &trans       &trans       &trans       &trans       &trans
-            >;
-        };
-
-        // Layer 2: Your current raise layer (unchanged)
-        raise_layer {
-            bindings = <
-                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
-                &kp LSHIFT  &none   &none   &none   &none   &none      &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp BSLH  &trans
-                &trans      &none   &none   &none   &none   &kp TILDE  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC   &kp PIPE  &trans
-                                            &trans  &trans  &trans     &trans     &trans    &trans
-            >;
-        };
-
-        // Layer 3: Your current layer_3 (unchanged)
-        layer_3 {
-            bindings = <
-                &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &none   &none   &none  &trans  &trans
-                &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
-                &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
-                                                        &trans        &trans        &trans        &trans        &trans  &trans
-            >;
-        };
-
-        // Layer 4: ERGOL layout - Using same keycode approach as default layer
-        ergol_layer {
             display-name = "ERGOL";
             bindings = <
                 // TOP ROW: Q C O P W | J M D ! Y
-                // Q→A key, C→C key, O→O key, P→P key, W→Z key | J→J key, M→SEMI key, D→D key, !→FR_EXLM, Y→Y key
                 &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J  &kp SEMI  &kp D  &kp FR_EXLM  &kp Y  &kp BSPC
 
                 // MIDDLE ROW (HOME ROW): A S E N F | L R T I U
-                // A→Q key, S→S key, E→E key, N→N key, F→F key | L→L key, R→R key, T→T key, I→I key, U→U key
                 &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L  &kp R  &kp T  &kp I  &kp U  &kp RALT
 
                 // BOTTOM ROW: Z X ? V B | : H G ; K
-                // Z→W key, X→X key, ?→FR_QUES, V→V key, B→B key | :→FR_COLN, H→H key, G→G key, ;→FR_SCLN, K→K key
                 &kp LCTRL  &kp W  &kp X  &kp FR_QUES  &kp V  &kp B      &kp FR_COLN  &kp H  &kp G  &kp FR_SCLN  &kp K  &kp ESC
 
-                // THUMB KEYS (same as your current layout)
+                // THUMB KEYS: Left thumb for Nav layer, Right thumb for Symbols/Numbers layer
                                          &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
+            >;
+        };
+
+        // Layer 1: Navigation & Function Keys (Orange "Nav" layer from image)
+        nav_layer {
+            display-name = "Nav";
+            bindings = <
+                // F-Keys row
+                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
+
+                // Navigation row
+                &kp LSHIFT  &none   &none   &none   &none   &none      &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp HOME  &kp END
+
+                // Additional navigation
+                &kp LCTRL   &none   &none   &none   &none   &none      &kp PG_DN  &kp PG_UP &none     &none      &none     &mo 3
+
+                // Thumb keys
+                                            &kp LGUI  &trans  &kp SPACE  &kp RET    &trans    &kp LALT
+            >;
+        };
+
+        // Layer 2: Numbers & Symbols (Blue "AltGr" layer from image)
+        symbols_layer {
+            display-name = "Symbols";
+            bindings = <
+                // Numbers row (as shown in reference image)
+                &kp FR_AMPR  &kp FR_EACU  &kp FR_DQUO  &kp FR_QUOT  &kp FR_LPRN  &kp FR_MINS    &kp FR_EGRV  &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV  &kp FR_RPRN  &kp FR_EQL
+
+                // Programming symbols
+                &kp LSHIFT   &none        &none        &kp FR_EURO  &none        &none          &kp FR_LBRC  &kp FR_RBRC  &kp FR_CIRC  &kp FR_DLR   &none        &trans
+
+                // More symbols
+                &kp LCTRL    &none        &none        &none        &none        &none          &kp FR_LCBR  &kp FR_RCBR  &kp FR_AT    &kp FR_HASH  &kp FR_PIPE  &mo 3
+
+                // Thumb keys
+                                                      &kp LGUI     &trans       &kp SPACE      &kp RET      &trans       &kp LALT
+            >;
+        };
+
+        // Layer 3: Bluetooth & System (when both layer keys are held)
+        system_layer {
+            display-name = "System";
+            bindings = <
+                // Bluetooth controls
+                &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
+
+                // System controls
+                &none       &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &none
+
+                // Reset and bootloader
+                &none       &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &sys_reset
+
+                // Thumb keys
+                                                        &trans        &trans        &trans          &trans &trans &trans
             >;
         };
     };
@@ -86,8 +90,8 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        // Your existing conditional layer setup (unchanged)
-        Layer3 {
+        // Access system layer when both nav and symbols are active
+        tri_layer {
             if-layers = <1 2>;
             then-layer = <3>;
         };
