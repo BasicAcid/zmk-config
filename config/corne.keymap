@@ -61,18 +61,21 @@
             >;
         };
 
-        // Layer 4: ERGOL layout - Based on the actual ERGOL 3x6 image
+        // Layer 4: ERGOL layout - Using same keycode approach as default layer
         ergol_layer {
             display-name = "ERGOL";
             bindings = <
                 // TOP ROW: Q C O P W | J M D ! Y
-                &kp TAB    &kp Q  &kp C  &kp O  &kp P  &kp W      &kp J  &kp M  &kp D  &kp FR_EXLM  &kp Y  &kp BSPC
+                // Q→A key, C→C key, O→O key, P→P key, W→Z key | J→J key, M→SEMI key, D→D key, !→FR_EXLM, Y→Y key
+                &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J  &kp SEMI  &kp D  &kp FR_EXLM  &kp Y  &kp BSPC
 
                 // MIDDLE ROW (HOME ROW): A S E N F | L R T I U
-                &kp LSHFT  &kp A  &kp S  &kp E  &kp N  &kp F      &kp L  &kp R  &kp T  &kp I        &kp U  &kp RALT
+                // A→Q key, S→S key, E→E key, N→N key, F→F key | L→L key, R→R key, T→T key, I→I key, U→U key
+                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L  &kp R  &kp T  &kp I  &kp U  &kp RALT
 
                 // BOTTOM ROW: Z X ? V B | : H G ; K
-                &kp LCTRL  &kp Z  &kp X  &kp FR_QUES  &kp V  &kp B      &kp FR_COLN  &kp H  &kp G  &kp FR_SCLN  &kp K  &kp ESC
+                // Z→W key, X→X key, ?→FR_QUES, V→V key, B→B key | :→FR_COLN, H→H key, G→G key, ;→FR_SCLN, K→K key
+                &kp LCTRL  &kp W  &kp X  &kp FR_QUES  &kp V  &kp B      &kp FR_COLN  &kp H  &kp G  &kp FR_SCLN  &kp K  &kp ESC
 
                 // THUMB KEYS (same as your current layout)
                                          &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
