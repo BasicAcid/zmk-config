@@ -14,18 +14,19 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: ERGOL Base Layout (simplified for testing)
+        // Layer 0: ERGOL Base Layout (fixed bottom row)
         default_layer {
             display-name = "ERGOL";
             bindings = <
-                // TOP ROW: Q C O P W | J M D ! Y (using basic keys for now)
+                // TOP ROW: Q C O P W | J M D ! Y ✅ (working correctly)
                 &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J     &kp SEMI  &kp D  &kp SLASH  &kp Y  &kp BSPC
 
-                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U
+                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U ✅ (working correctly)
                 &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L     &kp R     &kp T  &kp I      &kp U  &kp RALT
 
-                // BOTTOM ROW: Z X ? V B | : H G ; K (basic keys for now)
-                &kp LCTRL  &kp W  &kp X  &kp EQUAL  &kp V  &kp B      &kp SQT   &kp H     &kp G  &kp COMMA  &kp K  &kp ESC
+                // BOTTOM ROW: Z X ? V B | : H G ; K (FIXED)
+                // ? = Shift+M on AZERTY, : = DOT on AZERTY
+                &kp LCTRL  &kp W  &kp X  &kp LS(M)  &kp V  &kp B      &kp DOT   &kp H     &kp G  &kp COMMA  &kp K  &kp ESC
 
                 // THUMB KEYS
                                          &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
