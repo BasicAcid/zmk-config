@@ -6,62 +6,84 @@
 */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 #include "keymap_french.h"
 
+#define ERGOL 4  // ERGOL will be layer 4
+
 / {
-    combos {
-        compatible = "zmk,combos";
+    // Optional: Keep combos section for other combos you might want to add later
+    // combos {
+    //     compatible = "zmk,combos";
+    // };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        // Layer 0: Your current default layer (unchanged)
+        default_layer {
+            bindings = <
+                &kp TAB         &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y    &kp U        &kp I        &kp O        &kp P        &kp BSPC
+                &kp LEFT_SHIFT  &kp A  &kp S  &kp D     &kp F  &kp G      &kp H    &kp J        &kp K        &kp L        &kp SEMI     &kp RALT
+                &kp LCTRL       &kp Z  &kp X  &kp C     &kp V  &kp B      &kp N    &kp FR_COMM  &kp FR_SCLN  &kp FR_COLN  &kp FR_EXLM  &kp ESC
+                                               &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2        &kp LALT
+            >;
+        };
+
+        // Layer 1: Your current lower layer + ERGOL toggle
+        lower_layer {
+            bindings = <
+                &kp FR_AMPR  &kp FR_EACU  &kp FR_DQUO  &kp FR_QUOT  &kp FR_LPRN  &kp FR_MINS  &kp FR_EGRV  &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV  &kp FR_RPRN  &kp FR_EQL
+                &tog ERGOL   &none        &none        &none        &none        &none        &none        &kp FR_LBRC  &kp FR_RBRC  &kp FR_CIRC  &kp FR_DLR   &trans
+                &trans       &none        &none        &none        &none        &none        &none        &kp FR_LCBR  &kp FR_RCBR  &kp FR_UGRV  &kp BSLH     &trans
+                                                      &trans       &trans       &trans       &trans       &trans       &trans
+            >;
+        };
+
+        // Layer 2: Your current raise layer (unchanged)
+        raise_layer {
+            bindings = <
+                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
+                &kp LSHIFT  &none   &none   &none   &none   &none      &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp BSLH  &trans
+                &trans      &none   &none   &none   &none   &kp TILDE  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC   &kp PIPE  &trans
+                                            &trans  &trans  &trans     &trans     &trans    &trans
+            >;
+        };
+
+        // Layer 3: Your current layer_3 (unchanged)
+        layer_3 {
+            bindings = <
+                &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &none   &none   &none  &trans  &trans
+                &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
+                &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
+                                                        &trans        &trans        &trans        &trans        &trans  &trans
+            >;
+        };
+
+        // Layer 4: ERGOL layout - Based on the actual ERGOL 3x6 image
+        ergol_layer {
+            display-name = "ERGOL";
+            bindings = <
+                // TOP ROW: Q C O P W | J M D ! Y
+                &kp TAB    &kp Q  &kp C  &kp O  &kp P  &kp W      &kp J  &kp M  &kp D  &kp FR_EXLM  &kp Y  &kp BSPC
+
+                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U
+                &kp LSHFT  &kp A  &kp S  &kp E  &kp N  &kp F      &kp L  &kp R  &kp T  &kp I        &kp U  &kp RALT
+
+                // BOTTOM ROW: Z X ? V B | : H G ; K
+                &kp LCTRL  &kp Z  &kp X  &kp FR_QUES  &kp V  &kp B      &kp FR_COLN  &kp H  &kp G  &kp FR_SCLN  &kp K  &kp ESC
+
+                // THUMB KEYS (same as your current layout)
+                                         &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
+            >;
+        };
     };
 
-keymap {
-    compatible = "zmk,keymap";
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
 
-default_layer {
-    bindings = <
- // 1            2      3      4         5      6          7        8            9            10           11           12
- &kp TAB         &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y    &kp U        &kp I        &kp O        &kp P        &kp BSPC
- &kp LEFT_SHIFT  &kp A  &kp S  &kp D     &kp F  &kp G      &kp H    &kp J        &kp K        &kp L        &kp SEMI     &kp RALT
- &kp LCTRL       &kp Z  &kp X  &kp C     &kp V  &kp B      &kp N    &kp FR_COMM  &kp FR_SCLN  &kp FR_COLN  &kp FR_EXLM  &kp ESC
-                               &kp LGUI  &mo 1  &kp SPACE  &kp RET  &mo 2        &kp LALT
-    >;
-};
-
-lower_layer {
-    bindings = <
- // 1         2            3            4            5            6            7            8            9            10           11           12
- &kp FR_AMPR  &kp FR_EACU  &kp FR_DQUO  &kp FR_QUOT  &kp FR_LPRN  &kp FR_MINS  &kp FR_EGRV  &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV  &kp FR_RPRN  &kp FR_EQL
- &trans       &none        &none        &none        &none        &none        &none        &kp FR_LBRC  &kp FR_RBRC  &kp FR_CIRC  &kp FR_DLR   &trans
- &trans       &none        &none        &none        &none        &none        &none        &kp FR_LCBR  &kp FR_RCBR  &kp FR_UGRV  &kp BSLH     &trans
-                                        &trans       &trans       &trans       &trans       &trans       &trans
-    >;
-};
-
-raise_layer {
-    bindings = <
- // 1        2       3       4       5       6          7          8         9         10         11        12
- &kp F1      &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
- &kp LSHIFT  &none   &none   &none   &none   &none      &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp BSLH  &trans
- &trans      &none   &none   &none   &none   &kp TILDE  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC   &kp PIPE  &trans
-                             &trans  &trans  &trans     &trans     &trans    &trans
-    >;
-};
-
-layer_3 {
-    bindings = <
- // 1        2             3             4             5             6             7             8       9       10     11      12
- &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5  &none   &none   &none  &trans  &trans
- &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
- &trans      &none         &none         &none         &none         &none         &none         &none   &none   &none  &none   &trans
-                                         &trans        &trans        &trans        &trans        &trans  &trans
-        >;
-    };
-};
-
-conditional_layers {
-    compatible = "zmk,conditional-layers";
-
+        // Your existing conditional layer setup (unchanged)
         Layer3 {
             if-layers = <1 2>;
             then-layer = <3>;
