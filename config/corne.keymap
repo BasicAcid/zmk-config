@@ -14,22 +14,22 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: ERGOL Base Layout (fixed bottom row)
+        // Layer 0: ERGOL Base Layout (matching reference image exactly)
         default_layer {
             display-name = "ERGOL";
             bindings = <
-                // TOP ROW: Q C O P W | J M D ! Y ✅ (working correctly)
+                // TOP ROW: Q C O P W | J M D ! Y ✅
                 &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J     &kp SEMI  &kp D  &kp SLASH  &kp Y  &kp BSPC
 
-                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U ✅ (working correctly)
-                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L     &kp R     &kp T  &kp I      &kp U  &kp RALT
+                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U ✅
+                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L     &kp R     &kp T  &kp I      &kp U  &kp RSHIFT
 
-                // BOTTOM ROW: Z X ? V B | : H G ; K (FIXED)
-                // ? = Shift+M on AZERTY, : = DOT on AZERTY
-                &kp LCTRL  &kp W  &kp X  &kp LS(M)  &kp V  &kp B      &kp DOT   &kp H     &kp G  &kp COMMA  &kp K  &kp ESC
+                // BOTTOM ROW: Z X ? V B | : H G ; K ✅
+                &kp LCTRL  &kp W  &kp X  &kp LS(M)  &kp V  &kp B      &kp DOT   &kp H     &kp G  &kp COMMA  &kp K  &kp RCTRL
 
-                // THUMB KEYS
-                                         &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
+                // THUMB KEYS: Following the exact reference image layout
+                // Alt | Ctrl | Cmd | Nav(orange) | Space | AltGr(blue)
+                                         &kp LALT  &kp LCTRL  &kp LGUI   &mo 1  &kp SPACE  &mo 2
             >;
         };
 
