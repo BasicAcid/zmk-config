@@ -14,20 +14,20 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: ERGOL Base Layout (exactly as shown in reference image)
+        // Layer 0: ERGOL Base Layout (simplified for testing)
         default_layer {
             display-name = "ERGOL";
             bindings = <
-                // TOP ROW: Q C O P W | J M D ! Y
-                &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J  &kp SEMI  &kp D  &kp FR_EXLM  &kp Y  &kp BSPC
+                // TOP ROW: Q C O P W | J M D ! Y (using basic keys for now)
+                &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J     &kp SEMI  &kp D  &kp SLASH  &kp Y  &kp BSPC
 
                 // MIDDLE ROW (HOME ROW): A S E N F | L R T I U
-                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L  &kp R  &kp T  &kp I  &kp U  &kp RALT
+                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L     &kp R     &kp T  &kp I      &kp U  &kp RALT
 
-                // BOTTOM ROW: Z X ? V B | : H G ; K
-                &kp LCTRL  &kp W  &kp X  &kp FR_QUES  &kp V  &kp B      &kp FR_COLN  &kp H  &kp G  &kp FR_SCLN  &kp K  &kp ESC
+                // BOTTOM ROW: Z X ? V B | : H G ; K (basic keys for now)
+                &kp LCTRL  &kp W  &kp X  &kp EQUAL  &kp V  &kp B      &kp SQT   &kp H     &kp G  &kp COMMA  &kp K  &kp ESC
 
-                // THUMB KEYS: Left thumb for Nav layer, Right thumb for Symbols/Numbers layer
+                // THUMB KEYS
                                          &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2        &kp LALT
             >;
         };
@@ -50,18 +50,18 @@
             >;
         };
 
-        // Layer 2: Numbers & Symbols (Blue "AltGr" layer from image)
+        // Layer 2: Numbers & Symbols (simplified for testing)
         symbols_layer {
             display-name = "Symbols";
             bindings = <
-                // Numbers row (as shown in reference image)
-                &kp FR_AMPR  &kp FR_EACU  &kp FR_DQUO  &kp FR_QUOT  &kp FR_LPRN  &kp FR_MINS    &kp FR_EGRV  &kp FR_UNDS  &kp FR_CCED  &kp FR_AGRV  &kp FR_RPRN  &kp FR_EQL
+                // Numbers row (basic numbers for now)
+                &kp N1       &kp N2       &kp N3       &kp N4       &kp N5       &kp N6         &kp N7       &kp N8       &kp N9      &kp N0       &kp MINUS    &kp EQUAL
 
-                // Programming symbols
-                &kp LSHIFT   &none        &none        &kp FR_EURO  &none        &none          &kp FR_LBRC  &kp FR_RBRC  &kp FR_CIRC  &kp FR_DLR   &none        &trans
+                // Programming symbols (basic)
+                &kp LSHIFT   &none        &none        &none        &none        &none          &kp LBKT     &kp RBKT     &kp SQT     &kp BSLH     &none        &trans
 
                 // More symbols
-                &kp LCTRL    &none        &none        &none        &none        &none          &kp FR_LCBR  &kp FR_RCBR  &kp FR_AT    &kp FR_HASH  &kp FR_PIPE  &mo 3
+                &kp LCTRL    &none        &none        &none        &none        &none          &kp GRAVE    &kp SEMI     &kp COMMA   &kp DOT      &kp SLASH    &mo 3
 
                 // Thumb keys
                                                       &kp LGUI     &trans       &kp SPACE      &kp RET      &trans       &kp LALT
@@ -79,7 +79,7 @@
                 &none       &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &none
 
                 // Reset and bootloader
-                &none       &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &sys_reset
+                &none       &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &bootloader
 
                 // Thumb keys
                                                         &trans        &trans        &trans          &trans &trans &trans
