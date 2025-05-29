@@ -14,58 +14,57 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: ERGOL Base Layout (matching reference image exactly)
+        // Layer 0: AZERTY Base Layout (letters only, modifiers unchanged)
         default_layer {
-            display-name = "ERGOL";
+            display-name = "AZERTY";
             bindings = <
-                // TOP ROW: Q C O P W | J M D ! Y ✅
-                &kp TAB    &kp A  &kp C  &kp O  &kp P  &kp Z      &kp J     &kp SEMI  &kp D  &kp SLASH  &kp Y  &kp BSPC
+                // TOP ROW: A Z E R T Y U I O P (AZERTY letter layout)
+                &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T      &kp Y     &kp U     &kp I  &kp O      &kp P  &kp BSPC
 
-                // MIDDLE ROW (HOME ROW): A S E N F | L R T I U ✅
-                &kp LSHFT  &kp Q  &kp S  &kp E  &kp N  &kp F      &kp L     &kp R     &kp T  &kp I      &kp U  &kp RSHIFT
+                // MIDDLE ROW (HOME ROW): Q S D F G H J K L M (AZERTY home row)
+                &kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G      &kp H     &kp J     &kp K  &kp L      &kp SEMI  &kp RSHIFT
 
-                // BOTTOM ROW: Z X ? V B | : H G ; K ✅
-                &kp LCTRL  &kp W  &kp X  &kp LS(M)  &kp V  &kp B      &kp DOT   &kp H     &kp G  &kp COMMA  &kp K  &kp RCTRL
+                // BOTTOM ROW: W X C V B N (AZERTY bottom letters)
+                &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B      &kp N     &kp M     &kp COMMA  &kp DOT  &kp SLASH  &kp RCTRL
 
-                // THUMB KEYS: Following the exact reference image layout
-                // Alt | Ctrl | Cmd | Nav(orange) | Space | AltGr(blue)
+                // THUMB KEYS: Keep the same modifier layout
                                          &kp LALT  &kp LCTRL  &kp LGUI   &mo 1  &kp SPACE  &mo 2
             >;
         };
 
-        // Layer 1: Navigation & Function Keys (Orange "Nav" layer from image)
+        // Layer 1: Navigation Layer (Orange "Nav" - exactly as you specified)
         nav_layer {
             display-name = "Nav";
             bindings = <
-                // F-Keys row
-                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
+                // TOP ROW: tab ⇱ up ⇲ PUp | / 7 8 9 (empty)
+                &none       &kp TAB   &kp HOME  &kp UP    &kp END   &kp PG_UP  &kp FSLH    &kp N7    &kp N8    &kp N9    &none     &none
 
-                // Navigation row
-                &kp LSHIFT  &none   &none   &none   &none   &none      &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp HOME  &kp END
+                // MIDDLE ROW: ⇪ lft dwn rgt PDn | - 4 5 6 0
+                &trans      &kp CAPS  &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN  &kp MINUS   &kp N4    &kp N5    &kp N6    &kp N0    &trans
 
-                // Additional navigation
-                &kp LCTRL   &none   &none   &none   &none   &none      &kp PG_DN  &kp PG_UP &none     &none      &none     &mo 3
+                // BOTTOM ROW: ~ v- mut v+ DEL | , 1 2 3 .
+                &trans      &kp TILDE &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &kp DEL  &kp COMMA   &kp N1    &kp N2    &kp N3    &kp DOT   &trans
 
                 // Thumb keys
-                                            &kp LGUI  &trans  &kp SPACE  &kp RET    &trans    &kp LALT
+                                                &trans    &trans    &trans     &trans      &trans    &trans
             >;
         };
 
-        // Layer 2: Numbers & Symbols (simplified for testing)
+        // Layer 2: AltGr Layer (Blue - exactly as you specified)
         symbols_layer {
-            display-name = "Symbols";
+            display-name = "AltGr";
             bindings = <
-                // Numbers row (basic numbers for now)
-                &kp N1       &kp N2       &kp N3       &kp N4       &kp N5       &kp N6         &kp N7       &kp N8       &kp N9      &kp N0       &kp MINUS    &kp EQUAL
+                // TOP ROW: ^ < > $ % | @ & * ' `
+                &none       &kp CARET &kp LT    &kp GT    &kp DLLR  &kp PRCNT  &kp AT      &kp AMPS  &kp ASTRK &kp SQT   &kp GRAVE &none
 
-                // Programming symbols (basic)
-                &kp LSHIFT   &none        &none        &none        &none        &none          &kp LBKT     &kp RBKT     &kp SQT     &kp BSLH     &none        &trans
+                // MIDDLE ROW: { ( ) } = | \ + - / "
+                &trans      &kp LBRC  &kp LPAR  &kp RPAR  &kp RBRC  &kp EQUAL  &kp BSLH    &kp PLUS  &kp MINUS &kp FSLH  &kp DQT   &trans
 
-                // More symbols
-                &kp LCTRL    &none        &none        &none        &none        &none          &kp GRAVE    &kp SEMI     &kp COMMA   &kp DOT      &kp SLASH    &mo 3
+                // BOTTOM ROW: ~ [ ] ? # | | ! ; : ?
+                &trans      &kp TILDE &kp LBKT  &kp RBKT  &kp QMARK &kp HASH   &kp PIPE    &kp EXCL  &kp SEMI  &kp COLON &kp QMARK &trans
 
                 // Thumb keys
-                                                      &kp LGUI     &trans       &kp SPACE      &kp RET      &trans       &kp LALT
+                                                &trans    &trans    &trans     &trans      &trans    &trans
             >;
         };
 
