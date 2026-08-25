@@ -12,11 +12,8 @@
 #     shield: reviung41
 #
 ---
-# DIAGNOSTIC: using the pre-hardware-revision board name (nice_nano_v2)
-# because west.yml is pinned to a zmk commit from before that migration.
-# Revert together with west.yml once this diagnostic is done.
 include:
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: corne_left
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: corne_right

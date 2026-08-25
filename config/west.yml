@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 461f5c832fb8854d87dca54d113d306323697219 # DIAGNOSTIC: pinned to zmk main as of ~2025-05-29, the last time this repo is known to have paired successfully (commit ba1ced2). Testing whether BLE pairing works on this older zmk snapshot, to isolate an upstream regression from anything in our own recent commits.
+      revision: main
       import: app/west.yml
   self:
     path: config
