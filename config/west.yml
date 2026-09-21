@@ -5,7 +5,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pinned deliberately rather than tracking `main`. Floating on main made
+      # builds non-reproducible and broke this config three separate times
+      # (board rename, USB/BLE Kconfig regression, BLE pairing) with no local
+      # change to blame - and left no known-good state to fall back to.
+      # To take newer upstream ZMK: bump this SHA in its own commit, then
+      # build and flash, so any breakage is easy to attribute and revert.
+      revision: 9ebbeff0a8b69a42f14aec022cdf16c7a107b9e0 # zmk main @ 2026-09-15
       import: app/west.yml
   self:
     path: config
